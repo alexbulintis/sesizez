@@ -2,6 +2,16 @@ import generateGoogleMapsLink from "../reusables/generateGoogleMapsLink";
 import generateIntroduction from "../reusables/generateIntroduction";
 import generateSignature from "../reusables/generateSignature";
 import { reportedLocation, userPersonalData } from "../types";
+import Location, {getMappingFunction} from "../reusables/Location";
+
+const mailMapping = {
+  [Location.BSec1]: ['contact@politialocalasector1.ro', 'bpr@b.politiaromana.ro'],
+  [Location.BSec2]: ['office@politialocalas2.ro', 'bpr@b.politiaromana.ro'],
+  [Location.BSec3]: ['secretariat@politialocala3.ro', 'bpr@b.politiaromana.ro'],
+  [Location.BSec4]: ['sesizari@politialocala4.ro', 'bpr@b.politiaromana.ro'],
+  [Location.BSec5]: ['politialocala@sector5.ro', 'bpr@b.politiaromana.ro'],
+  [Location.BSec6]: ['office@politia6.ro', 'bpr@b.politiaromana.ro'],
+}
 
 const trotuarDegradat = {
   title: 'Trotuar degradat',
@@ -17,23 +27,7 @@ const trotuarDegradat = {
      `Doresc repararea acestor trotuare și aducerea lor la un standard decent pentru a putea circula în siguranță ca pietoni. \n\n` +
     `${signature}`;
   },
-  destination: (localitate: string, judet: string) => {
-    switch (`${localitate} - ${judet}`) {
-      case 'Bucureşti - Sectorul 1':
-        return ['secretariat@adp-sector1.ro', 'office@aspmb.ro'];
-      case 'Bucureşti - Sectorul 2':
-        return ['office@adp2.ro', 'office@aspmb.ro'];
-      case 'Bucureşti - Sectorul 3':
-        return ['domeniu.public@primarie3.ro', 'office@aspmb.ro'];
-      case 'Bucureşti - Sectorul 4':
-        return ['info@adp4.ro', 'info@totulverde.ro', 'office@aspmb.ro'];
-      case 'Bucureşti - Sectorul 5':
-        return ['dadp@sector5.ro', 'office@aspmb.ro'];
-      case 'Bucureşti - Sectorul 6':
-        return ['contact@adps6.ro', 'office@aspmb.ro'];
-      default: return [];
-    }
-  }
+  destination: getMappingFunction(mailMapping)
 }
 
 export default trotuarDegradat;

@@ -22,8 +22,8 @@ export const getCurrentLocation = async (): Promise<reportedLocation | undefined
   return {
     adresaLinie1: `Str. ${response[0].street}, nr. ${response[0].streetNumber}`,
     adresaLinie2: '',
-    localitate: response[0].city?.replace('Bucharest', 'Bucureşti') || '',
-    judet: response[0].district?.replace('Bucureşti ', '').replace('Bucharest ', '') || '',
+    localitate: response[0].city?.replace('București', 'Bucuresti').replace('Bucharest', 'Bucuresti') || '',
+    judet: response[0].district?.replace('București ', '').replace('Bucharest ', '') || '',
     lat: latitude,
     lng: longitude
   }

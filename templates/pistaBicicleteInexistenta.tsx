@@ -2,6 +2,48 @@ import generateGoogleMapsLink from '../reusables/generateGoogleMapsLink';
 import generateIntroduction from '../reusables/generateIntroduction';
 import generateSignature from '../reusables/generateSignature';
 import { reportedLocation, userPersonalData } from '../types';
+import Location, {getMappingFunction} from "../reusables/Location";
+
+const mailMapping = {
+  [Location.BSec1]: [
+    'contact@politialocalasector1.ro',
+    'office@aspmb.ro',
+    'registratura@primarias1.ro',
+    'secretariat@adp-sector1.ro',
+  ],
+  [Location.BSec2]: [
+    'office@politialocalas2.ro',
+    'office@aspmb.ro',
+    'infopublice@ps2.ro',
+    'office@adp2.ro',
+  ],
+  [Location.BSec3]: [
+    'secretariat@politialocala3.ro',
+    'office@aspmb.ro',
+    'relatiipublice@primarie3.ro',
+    'domeniu.public@primarie3.ro',
+  ],
+  [Location.BSec4]: [
+    'sesizari@politialocala4.ro',
+    'office@aspmb.ro',
+    'info@adp4.ro',
+    'contact@ps4.ro',
+    'info@totulverde.ro',
+  ],
+  [Location.BSec5]: [
+    'politialocala@sector5.ro',
+    'office@aspmb.ro',
+    'sesizari@sector5.ro',
+    'primarie@sector5.ro',
+    'dadp@sector5.ro',
+  ],
+  [Location.BSec6]: [
+    'office@politia6.ro',
+    'office@aspmb.ro',
+    'prim6@primarie6.ro',
+    'contact@adps6.ro',
+  ],
+}
 
 const pistaBicicleteInexistenta = {
   title: 'Pistă de biciclete inexistentă',
@@ -21,56 +63,7 @@ const pistaBicicleteInexistenta = {
       `${signature}`
     );
   },
-  destination: (localitate: string, judet: string) => {
-    switch (`${localitate} - ${judet}`) {
-      case 'Bucureşti - Sectorul 1':
-        return [
-          'contact@politialocalasector1.ro',
-          'office@aspmb.ro',
-          'registratura@primarias1.ro',
-          'secretariat@adp-sector1.ro',
-        ];
-      case 'Bucureşti - Sectorul 2':
-        return [
-          'office@politialocalas2.ro',
-          'office@aspmb.ro',
-          'infopublice@ps2.ro',
-          'office@adp2.ro',
-        ];
-      case 'Bucureşti - Sectorul 3':
-        return [
-          'secretariat@politialocala3.ro',
-          'office@aspmb.ro',
-          'relatiipublice@primarie3.ro',
-          'domeniu.public@primarie3.ro',
-        ];
-      case 'Bucureşti - Sectorul 4':
-        return [
-          'sesizari@politialocala4.ro',
-          'office@aspmb.ro',
-          'info@adp4.ro',
-          'contact@ps4.ro',
-          'info@totulverde.ro',
-        ];
-      case 'Bucureşti - Sectorul 5':
-        return [
-          'politialocala@sector5.ro',
-          'office@aspmb.ro',
-          'sesizari@sector5.ro',
-          'primarie@sector5.ro',
-          'dadp@sector5.ro',
-        ];
-      case 'Bucureşti - Sectorul 6':
-        return [
-          'office@politia6.ro',
-          'office@aspmb.ro',
-          'prim6@primarie6.ro',
-          'contact@adps6.ro',
-        ];
-      default:
-        return [];
-    }
-  },
+  destination: getMappingFunction(mailMapping)
 };
 
 export default pistaBicicleteInexistenta;
