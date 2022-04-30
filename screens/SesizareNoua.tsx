@@ -21,6 +21,7 @@ import trecerePietoniVopseaStearsa from '../templates/trecerePietoniVopseaStears
 import pistaBicicleteNesigura from '../templates/pistaBicicleteNesigura';
 import pistaBicicleteInexistenta from '../templates/pistaBicicleteInexistenta';
 import masiniParcateTrecere from '../templates/masiniParcateTrecere';
+import scrieDeputatilor from '../templates/scrieDeputatilor';
 import { osmReverseLookup } from '../reusables/osmReverseLookup';
 import { calculateCoordinateDistance } from '../reusables/calculateCoordinateDistance';
 
@@ -31,6 +32,7 @@ const templates = [
   masiniParcateTrecere,
   pistaBicicleteNesigura,
   pistaBicicleteInexistenta,
+  scrieDeputatilor,
 ];
 
 export default function SesizareNoua({

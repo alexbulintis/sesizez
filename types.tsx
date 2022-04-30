@@ -53,4 +53,4 @@ export type reportedLocation = {
   localitate: string;
 }
 
-export type authorities = 'adp' | 'brigadaRutiera' | 'politiaLocala' | 'primarie';
+export type authorities = 'adp' | 'brigadaRutiera' | 'politiaLocala' | 'primarie' | 'cameraDeputatilor';
